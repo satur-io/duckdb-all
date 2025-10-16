@@ -8,6 +8,7 @@ use Composer\Plugin\PluginInterface;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\Installer\PackageEvent;
 use Composer\Installer\PackageEvents;
+use Saturio\DuckDB\CLib\Downloader;
 
 class Installer implements PluginInterface, EventSubscriberInterface
 {
