@@ -1,6 +1,6 @@
 <?php
 
-namespace Saturio\DuckDB\CLib\Downloader;
+namespace Saturio\DuckDBInstaller;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;

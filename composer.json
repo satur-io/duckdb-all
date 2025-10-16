@@ -3,7 +3,7 @@
   "description": "Install DuckDB PHP package and the C library required for the current OS.",
   "type": "composer-plugin",
   "require": {
-    "satur.io/duckdb": ">=2.0",
+    "satur.io/duckdb": ">= 2.0.0",
     "php": ">=8.3",
     "composer-plugin-api": "^2.0",
     "ext-zip": "*"
