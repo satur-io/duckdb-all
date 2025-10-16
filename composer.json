@@ -1,0 +1,24 @@
+{
+  "name": "satur.io/duckdb-plugin",
+  "description": "Install DuckDB PHP package and the C library required for the current OS.",
+  "type": "composer-plugin",
+  "require": {
+    "satur.io/duckdb": ">=2.0",
+    "php": ">=8.3",
+    "composer-plugin-api": "^2.0",
+    "ext-zip": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Saturio\\DuckDBInstaller\\": "src/"
+    }
+  },
+  "extra": {
+    "class": "Saturio\\DuckDBInstaller\\Installer"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require-dev": {
+    "composer/composer": "^2.8"
+  }
+}
