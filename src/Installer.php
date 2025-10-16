@@ -18,7 +18,7 @@ class Installer implements PluginInterface, EventSubscriberInterface
     {
         $this->composer = $composer;
         $this->io = $io;
-        $this->io->write('<info>DescargadorPlugin Activado.</info>');
+        $this->io->write('<info>DuckDB PHP plugin activate.</info>');
     }
     public function deactivate(Composer $composer, IOInterface $io) {}
     public function uninstall(Composer $composer, IOInterface $io) {}
@@ -36,7 +36,7 @@ class Installer implements PluginInterface, EventSubscriberInterface
         $this->io->write('<comment>Downloading DuckDB C library for your OS</comment>');
         $installedPackage = $event->getOperation()->getPackage();
 
-        if ($installedPackage->getName() !== 'satur.io/duckdb-php-full') {
+        if ($installedPackage->getName() !== 'satur.io/duckdb-plugin') {
             return;
         }
 
