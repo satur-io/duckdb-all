@@ -1,5 +1,5 @@
 {
-  "name": "satur.io/duckdb-plugin",
+  "name": "satur.io/duckdb-all",
   "description": "Install DuckDB PHP package and the C library required for the current OS.",
   "type": "composer-plugin",
   "require": {
