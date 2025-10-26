@@ -3,6 +3,8 @@
 namespace Saturio\DuckDBInstaller;
 
 use Composer\Composer;
+use Composer\DependencyResolver\Operation\InstallOperation;
+use Composer\DependencyResolver\Operation\UpdateOperation;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -35,9 +37,16 @@ class Installer implements PluginInterface, EventSubscriberInterface
     public function onPostPackageEvent(PackageEvent $event): void
     {
         $this->io->write('<comment>Downloading DuckDB C library for your OS</comment>');
-        $installedPackage = $event->getOperation()->getPackage();
 
-        if ($installedPackage->getName() !== 'satur.io/duckdb-auto') {
+        if  ($event->getOperation() instanceof InstallOperation) {
+            $package = $event->getOperation()->getPackage();
+        } elseif ($event->getOperation() instanceof UpdateOperation) {
+            $package = $event->getOperation()->getTargetPackage();
+        } else {
+            return;
+        }
+
+        if ($package->getName() !== 'satur.io/duckdb-auto') {
             return;
         }
 
