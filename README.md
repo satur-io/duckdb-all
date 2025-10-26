@@ -1,3 +1,3 @@
-This is a plugin to automatically install `satur.io/dudckdb` and the required C library.
+This is a plugin to automatically install `satur.io/dudckdb` and the required C library for your OS.
 
-Check [https://github.com/satur-io/duckdb-php](the main package) and its documentation for more information.
+Check [the main package](https://github.com/satur-io/duckdb-php) and its documentation for more information.

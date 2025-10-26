@@ -8,7 +8,7 @@ use Composer\Plugin\PluginInterface;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\Installer\PackageEvent;
 use Composer\Installer\PackageEvents;
-use Saturio\DuckDB\CLib\Downloader;
+use Saturio\DuckDB\CLib\Installer as MainPackageInstaller;
 
 class Installer implements PluginInterface, EventSubscriberInterface
 {
@@ -37,15 +37,11 @@ class Installer implements PluginInterface, EventSubscriberInterface
         $this->io->write('<comment>Downloading DuckDB C library for your OS</comment>');
         $installedPackage = $event->getOperation()->getPackage();
 
-        if ($installedPackage->getName() !== 'satur.io/duckdb-plugin') {
+        if ($installedPackage->getName() !== 'satur.io/duckdb-auto') {
             return;
         }
 
-        $mainPackage = $this->composer->getRepositoryManager()->getLocalRepository()->findPackage('satur.io/duckdb', '*');
-
-        $installationManager = $this->composer->getInstallationManager();
-        $baseDir = $installationManager->getInstallPath($mainPackage);
-        Downloader::download($baseDir . DIRECTORY_SEPARATOR . 'lib', $mainPackage->getPrettyVersion());
+        MainPackageInstaller::install();
         $this->io->write('<info>DuckDB C lib downloaded.</info>');
     }
 }
